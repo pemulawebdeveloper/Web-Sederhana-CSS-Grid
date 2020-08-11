@@ -3,39 +3,94 @@
     padding: 0;
 }
 
+img {
+    width: 100%;
+}
 body {
-    font-family:'Teko', sans-serif;
-    overflow-x: hidden;
+    background-color: #BDB76B;
+    font-size: 18px;
+    font-family:'Sora', Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+/* container */
+
+.container {
+    display: grid;
+    gap: 10px;
 }
 
-nav {
-    display: flex;
-    background-color: tomato;
-    justify-content: space-around;
-    height: 50px;
+.header {
+    display: grid;
+    grid-template-areas: 
+    'hero hero feature-1'
+    'hero hero feature-2';
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(img/hero2.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.hero > * {
+    display: none;
+}
+.features {
+    background-color: black;
+    color: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.feature-1 {
+    grid-area: feature-1;
+    background-image: url(img/pizza5.jpg);
+    background-size: cover;
+}
+.feature-2 {
+    grid-area: feature-2;
+    background-image: url(img/pizza3.jpg);
+    background-size: cover;
+}
+
+.features .price {
+    font-size: 3em;
+    font-weight: 200;
+}
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     align-items: center;
-    color: rgb(255, 196, 185);
+
 }
 
-nav .logo {
-    font-family:'Pacifico', cursive;
-    letter-spacing: 3px;
+.menu .brand {
+    font-size: 1.3em;
+    color: #333;
 }
-nav ul {
-    display: flex;
+.menu ul {
     list-style: none;
-    width: 40%;
-    justify-content: space-between;
-}
-nav ul li a {
-    color: rgb(255, 196, 185);
-    text-decoration: none;
-    font-size: 1em;
-}
-nav ul li a:hover {
-    color: rgb(131, 98, 93);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
 }
 
+
+.menu a {
+    display: block;
+    background-color: tomato;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
 
 
 /* Humburger Menu */
@@ -45,19 +100,9 @@ nav ul li a:hover {
     height: 20px;
     justify-content: space-between;
     position: relative;
+    z-index: 999;
 }
 
-
-.menu-toggle input {
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    left: -5px;
-    top: -3px;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 2;
-}
 
 .menu-toggle span {
     display: block;
@@ -68,9 +113,19 @@ nav ul li a:hover {
     transition: all 0.5s;
 }
 
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
 
 /* Humburger Menu Animasi */
-
 
 .menu-toggle span:nth-child(2) {
     transform-origin: 0 0;
@@ -97,39 +152,86 @@ nav ul li a:hover {
 }
 
 
-/* Responsive Breakpoint */
+/* Services */
 
-/* Ukuran Tablet */
-
-@media screen and (max-width: 768px) {
-    nav ul {
-        width: 50%;
-    }
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-/* Ukuran Mobile */
-@media screen and (max-width: 576px) {
+
+.service {
+    background-color: tomato;
+    padding: 15px;
+    text-align: center;
+    border: 1px sollid rgb(189, 100, 85);
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.service .icon {
+    font-size: 3em;
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 1024px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+}
+.menu .brand {
+    display: none;
+}
+.hero > * {
+    display: block;
+    background-color: rgb(192, 107, 107);
+    color: blanchedalmond;
+    padding: 5px;
+    margin-bottom: 5px;
+    opacity: 2;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
     .menu-toggle {
         display: flex;
     }
-    nav ul {
+    .menu ul {
+        display: flex;
         position: absolute;
         right: 0;
         top: 0;
-        width: 80%;
+        width: 100%;
         height: 100vh;
         justify-content: space-evenly;
         flex-direction: column;
         align-items: center;
         background-color: tomato;
-        z-index: -1;
-        transform: translateX(100%);
+        z-index: 1;
+        transform: translateY(-100%);
         transition: all 1s;
         opacity: 0;
     }
-    nav ul.slide {
-        transform: translateX(0);
+    .menu ul.slide {
+        transform: translateY(0);
         opacity: 1;
     }
 }
-
+@media (max-width: 600px) {
+    .header {
+        grid-template-areas: 
+        'hero'
+        'feature-1'
+        'feature-2';
+    }
+}

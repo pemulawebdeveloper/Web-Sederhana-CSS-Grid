@@ -3,31 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Navbar</title>
+    <title>PizzaDASH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Teko:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-     <div class="logo">
-         <h2>Taufiq Hidayat</h2>
-     </div>
+    <div class="container">
+        <header class="header">
+            <div class="hero">
+            <h2 class="heading">PizzaDASH</h2>
+            <p class="sub-heading">Pizza Mozarella & Pizza Keju Special</p>
+            </div>
+            <div class="features feature-1">
+            <h4 class="price">IDR 350K</h4>
+            <p class="item">Pizza Mozarella</p>
+            </div>
+            <div class="features feature-2">
+            <h4 class="price">IDR 200K</h4>
+            <p class="item">Pizza Keju Special</p>
+            </div>
+        </header>
+        <nav class="menu">
+            <div class="menu-toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="brand">
+                <h1>PizzaDASH</h1>
+            </div>
+            <ul class="menu-list">
+                <li><a href="">Home</a></li>
+                <li><a href="">Product</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Gallery</a></li>
+            </ul>
+        </nav>
 
-     <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Product</a></li>
-        <li><a href="">Service</a></li>
-        <li><a href="">Gallery</a></li>
-        <li><a href="">About </a></li>
-     </ul>
 
-     <div class="menu-toggle">
-         <input type="checkbox">
-         <span></span>
-         <span></span>
-         <span></span>
-     </div>
-    </nav>
-    <script src="script.js"></script>
+        <section class="services">
+            <div class="service">
+                <div class="icon">🛵</div>
+                <h3>Delivery</h3>
+                <p>We're ready to delivery a pizza delivery to your destination in 30 minutes</p>
+            </div>
+            <div class="service">
+                <div class="icon">📞</div>
+                <h3>Costumer Service</h3>
+                <p>We are at your service for 24 hours please call to number 085883291612</p>
+            </div>
+            <div class="service">
+                <div class="icon">🕛</div>
+                <h3>Open 24jam</h3>
+                <p>We're open for 24 hours Monday-Friday, Saturday-Sunday 07:00-12:00</p>
+            </div>
+            <div class="service">
+                <div class="icon">🚙</div>
+                <h3>DiveTHRU</h3>
+                <p>You can order pizzas in your vehicle</p>
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <img src="https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200" alt="">
+            <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1587565054227-b3727cbf3f10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1545016803-a7e357a737e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1559608568-99cb288ccebe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+            <img src="https://images.unsplash.com/photo-1576458088443-04a19bb13da6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=200x200"alt="">
+        </section>
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle input');
+        const nav = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('slide');
+    });
+    </script>
 </body>
 </html>
